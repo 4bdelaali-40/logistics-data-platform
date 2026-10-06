@@ -1,0 +1,22 @@
+{
+  "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
+  "tasks.max": "1",
+  "plugin.name": "pgoutput",
+  "database.hostname": "postgres",
+  "database.port": "5432",
+  "database.user": "debezium",
+  "database.password": "__DB_PASSWORD__",
+  "database.dbname": "__DB_NAME__",
+  "topic.prefix": "orders_app",
+  "slot.name": "dbz_orders_slot",
+  "publication.name": "dbz_publication",
+  "publication.autocreate.mode": "disabled",
+  "table.include.list": "public.carriers,public.warehouses,public.products,public.customers,public.orders,public.order_items,public.shipments,public.stock_levels,public.stock_movements",
+  "snapshot.mode": "initial",
+  "decimal.handling.mode": "string",
+  "heartbeat.interval.ms": "10000",
+  "key.converter": "org.apache.kafka.connect.json.JsonConverter",
+  "key.converter.schemas.enable": "false",
+  "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+  "value.converter.schemas.enable": "false"
+}
